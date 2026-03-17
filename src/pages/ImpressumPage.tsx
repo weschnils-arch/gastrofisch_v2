@@ -31,7 +31,7 @@ const ImpressumPage = () => {
                             <div>
                                 <h3 className="text-sm font-bold uppercase tracking-wider text-graphite/40 mb-1">Eigentümer</h3>
                                 <p className="text-lg font-bold text-graphite">Centaurus GmbH</p>
-                                <p>Lindengasse 30/1-4<br />1070 Wien, Österreich</p>
+                                <p>Zollergasse 12<br />1070 Wien, Österreich</p>
                             </div>
 
                             <hr className="border-gray-200" />
@@ -39,7 +39,7 @@ const ImpressumPage = () => {
                             <div>
                                 <h3 className="text-sm font-bold uppercase tracking-wider text-graphite/40 mb-1">Geschäft</h3>
                                 <p className="text-lg font-bold text-adria">Gastro Fisch Brač</p>
-                                <p>Zollergasse 19<br />1070 Wien, Österreich</p>
+                                <p>Zollergasse 12<br />1070 Wien, Österreich</p>
                             </div>
                         </div>
                     </section>
@@ -47,8 +47,8 @@ const ImpressumPage = () => {
                     <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div>
                             <h3 className="font-playfair text-xl font-semibold text-graphite mb-4">Kontakt</h3>
-                            <p><strong>E-Mail:</strong> <a href="mailto:office@centaurus-austria.at" className="text-adria hover:underline">office@centaurus-austria.at</a></p>
-                            <p><strong>Telefon:</strong> +43 676 5404906</p>
+                            <p><strong>E-Mail:</strong> <a href="mailto:info@gastrofisch.at" className="text-adria hover:underline">info@gastrofisch.at</a></p>
+                            <p><strong>Telefon:</strong> +43 1 431 4196</p>
                         </div>
                         <div>
                             <h3 className="font-playfair text-xl font-semibold text-graphite mb-4">Registerdaten</h3>

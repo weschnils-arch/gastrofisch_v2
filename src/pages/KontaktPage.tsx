@@ -37,15 +37,15 @@ const KontaktPage = () => {
           <div className="space-y-8">
             <div>
               <h2 className="font-playfair text-3xl md:text-4xl font-semibold text-graphite mb-6">Besuchen Sie uns</h2>
-              <p className="font-lato text-graphite/70 leading-relaxed">Ob für eine persönliche Beratung oder einen Einkauf – wir freuen uns auf Ihren Besuch.</p>
+              <p className="font-lato text-graphite/70 leading-relaxed">Wir freuen uns, Sie persönlich bei uns begrüßen zu dürfen.</p>
             </div>
 
             <div className="space-y-4">
               {[
-                { icon: MapPin, title: 'Adresse', content: <><p>Gastro Fisch Brač</p><p>Zollergasse 19</p><p>1070 Wien</p></> },
-                { icon: Clock, title: 'Öffnungszeiten', content: <><p>Montag – Freitag: 9:00 – 18:00 Uhr</p><p>Samstag: 9:00 – 14:00 Uhr</p><p className="text-xs opacity-50">Sonntag: Geschlossen</p></> },
-                { icon: Phone, title: 'Telefon', content: <a href="tel:+4311234567" className="hover:text-adria transition-colors">+43 1 123 4567</a> },
-                { icon: Mail, title: 'E-Mail', content: <a href="mailto:info@gastrofischbrac.at" className="hover:text-adria transition-colors">info@gastrofischbrac.at</a> },
+                { icon: MapPin, title: 'Adresse', content: <><p>Gastro Fisch Brač</p><p>Zollergasse 12</p><p>1070 Wien</p></> },
+                { icon: Clock, title: 'Öffnungszeiten', content: <><p>Di - Do: 10 - 18 Uhr</p><p>Fr &amp; Sa: 9 - 18 Uhr</p><p className="text-xs opacity-50">So + Mo geschlossen</p><p className="mt-2 font-medium">Bistro: Fr &amp; Sa: 11:30 - 18 Uhr</p><p className="text-xs opacity-70">(Letzte Bestellannahme 17:15 Uhr)</p><a href="https://bookings.zenchef.com/results?rid=381707&pid=1001" target="_blank" rel="noopener noreferrer" className="inline-block mt-2 text-adria hover:underline text-sm font-medium">Zur Reservierung →</a></> },
+                { icon: Phone, title: 'Telefon', content: <a href="tel:+4314314196" className="hover:text-adria transition-colors">+43 1 431 4196</a> },
+                { icon: Mail, title: 'E-Mail', content: <a href="mailto:info@gastrofisch.at" className="hover:text-adria transition-colors">info@gastrofisch.at</a> },
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-5 p-5 glass-card rounded-2xl shadow-xl hover:-translate-y-1 transition-all duration-300">
                   <div className="w-12 h-12 bg-adria/10 rounded-xl flex items-center justify-center flex-shrink-0"><item.icon className="w-6 h-6 text-adria" /></div>
@@ -57,8 +57,17 @@ const KontaktPage = () => {
               ))}
             </div>
 
-            <div className="bg-gray-100 rounded-xl overflow-hidden h-[250px] flex items-center justify-center">
-              <div className="text-center"><MapPin className="w-12 h-12 text-adria/30 mx-auto mb-3" /><p className="font-lato text-graphite/50 text-sm">Google Maps Integration</p><p className="font-lato text-graphite/70">Zollergasse 19, 1070 Wien</p></div>
+            <div className="rounded-xl overflow-hidden h-[250px] shadow-lg">
+              <iframe
+                title="Gastro Fisch Brač Standort"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2659.077!2d16.3487!3d48.2016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476d079e93f2849f%3A0x2ed651f7ae0a45c7!2sZollergasse%2012%2C%201070%20Wien%2C%20Austria!5e0!3m2!1sde!2sat!4v1"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
           </div>
 
@@ -87,12 +96,12 @@ const KontaktPage = () => {
                     </div>
                     <div>
                       <label className="block font-lato text-sm font-medium text-graphite mb-2">Telefon</label>
-                      <input type="tel" name="phone" value={formData.phone} onChange={handleChange} className="w-full px-4 py-3 border border-gray-200 rounded-lg font-lato text-graphite focus:outline-none focus:ring-2 focus:ring-adria/20 focus:border-adria transition-colors bg-white" placeholder="+43 1 123 4567" />
+                      <input type="tel" name="phone" value={formData.phone} onChange={handleChange} className="w-full px-4 py-3 border border-gray-200 rounded-lg font-lato text-graphite focus:outline-none focus:ring-2 focus:ring-adria/20 focus:border-adria transition-colors bg-white" placeholder="+43 1 431 4196" />
                     </div>
                   </div>
                   <div>
                     <label className="block font-lato text-sm font-medium text-graphite mb-2">Betreff *</label>
-                    <select name="subject" value={formData.subject} onChange={handleChange} className="w-full px-4 py-3 border border-gray-200 rounded-lg font-lato text-graphite focus:outline-none focus:ring-2 focus:ring-adria/20 focus:border-adria transition-colors bg-white" required>
+                    <select name="subject" value={formData.subject} onChange={handleChange} className="w-full px-4 py-4 border border-gray-200 rounded-lg font-lato text-graphite focus:outline-none focus:ring-2 focus:ring-adria/20 focus:border-adria transition-colors bg-white" required>
                       <option value="">Bitte wählen</option>
                       <option value="einzelhandel">Einzelhandel-Anfrage</option>
                       <option value="grosshandel">Großhandel-Anfrage</option>

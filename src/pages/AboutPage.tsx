@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { PhotoSlider } from '../components/PhotoSlider';
 
 const AboutPage = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -13,23 +14,18 @@ const AboutPage = () => {
   }, []);
 
   const timeline = [
-    { year: '1990', title: 'Die Anfänge', description: 'Ivo Bartulović beginnt in Split mit dem Handel von kroatischen Garnelen aus Wildfang.' },
+    { year: '2002', title: 'Die Anfänge', description: 'Ivo Bartulović gründet das Unternehmen Centaurus d.o.o. in Split.' },
     { year: '2004', title: 'Familienzuwachs', description: 'Toni Bartulović kommt ins Unternehmen. Gemeinsam bauen sie den Großhandel aus.' },
     { year: '2008', title: 'Einzelhandel trotz Krise', description: 'Mitten in der globalen Finanzkrise eröffnet der erste Einzelhandel in Split – ein mutiger Schritt, der sich auszahlt.' },
-    { year: '2018', title: 'Centaurus GmbH & Wien', description: 'Gründung der Centaurus GmbH. Treffen mit Milan Prgomet beim Hajduk Split Stadion zur Planung der Wiener Expansion.' },
-    { year: '2019', title: 'Gastro Fisch Brač', description: 'Eröffnung der Boutique in Wien-Neubau – unser erster Standort außerhalb Kroatiens.' },
-    { year: 'Heute', title: 'Stetiges Wachstum', description: 'Mit über 170 Mitarbeitern und einer starken Logistik beliefern wir Gastronomie und Privatkunden.' },
+    { year: '2018', title: 'Centaurus GmbH & Wien', description: 'Gründung der Centaurus GmbH gemeinsam mit Milan Prgomet und Expansion nach Wien.' },
+    { year: '2019', title: 'Eroberung Wiens', description: 'Gastro Fisch-Boutique eröffnet am Neubau – unser erster Standort außerhalb Kroatiens.' },
+    { year: 'Heute', title: 'Nachhaltiges Wachstum', description: 'Weiterentwicklung zur führenden Premium-Marke für Gastronomie und Privatkunden.' },
   ];
 
-  const founders = [
-    { name: 'Ivo Bartulović', role: 'Gründer & Geschäftsführer', image: '/images/about/ivo.webp', description: 'Der visionäre Gründer, der 1990 alles begann.' },
-    { name: 'Toni Bartulović', role: 'Geschäftsführer', image: '/images/about/team.webp', description: 'Seit 2004 an Bord und treibt die Expansion voran.' },
-    { name: 'Milan Prgomet', role: 'Geschäftsführer Wien', image: '/images/about/milan.webp', description: 'Der Architekt der Wiener Expansion.' },
-  ];
 
   return (
     <div className="relative">
-      <div ref={heroRef} className="relative h-[50vh] md:h-[60vh] overflow-hidden">
+      <div ref={heroRef} className="relative h-[40vh] md:h-[50vh] overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url(/images/about_hero_new.webp)' }} />
         <div className="absolute inset-0 hero-overlay" />
         <div className="relative z-10 h-full flex items-center justify-center px-4">
@@ -45,35 +41,14 @@ const AboutPage = () => {
         <div className="max-w-4xl mx-auto">
           <h2 className="font-playfair text-3xl md:text-4xl font-semibold text-graphite mb-6 text-center">Mehr als nur Fisch</h2>
           <div className="space-y-6 font-lato text-graphite/80 leading-relaxed text-lg">
-            <p>Um die Jahrtausendwende begann Ivo Bartulović in Split mit dem Handel eines Produkts, das die Identität unseres Unternehmens bis heute prägt: Kroatische Garnelen aus Wildfang.</p>
-            <p>2004 holte er seinen Bruder Toni mit ins Boot. Noch heute führen sie gemeinsam das Unternehmen Centaurus d.o.o. in Kroatien, das mittlerweile mehr als 170 Mitarbeiter beschäftigt.</p>
-            <p>2018 schlug Milan Prgomet den Brüdern Bartulović vor, das Geschäft nach Wien auszuweiten. Im Januar 2019 wurde das Boutique-Fischgeschäft unter dem Namen Gastro Fisch Brač in Wien Neubau eröffnet.</p>
+            <p>Im Jahr 2002 legte Ivo Bartulović in Kroatien den Grundstein für sein Unternehmen Centaurus. Was mit nur einem Mitarbeiter, zwei Tiefkühltruhen und einem einzigen Fahrzeug begann, entwickelte sich rasch zu einer Erfolgsgeschichte. Bereits 2004 wurde daraus auch ein echtes Familienunternehmen: Ivos Bruder Toni Bartulović stieg ein und trug entscheidend zur dynamischen Expansion bei. Heute zählt Centaurus über 170 Mitarbeiter und gilt in Dalmatien als Synonym für höchste Standards im Handel mit Fisch und Meeresprodukten.</p>
+            <p>Dass diese Qualität auch in Wien auf große Resonanz stoßen würde, erkannte Milan Prgomet frühzeitig. Der Ökonom und langjährige Finanzdirektor des traditionsreichen Fußballclubs Hajduk Split brachte die Idee einer Expansion nach Österreich ins Spiel.</p>
+            <p>2019 eröffneten die drei Partner schließlich unter dem Namen „Gastro Fisch Brač" ihre erste Fisch-Boutique im Wiener Bezirk Neubau – und setzten damit den nächsten Meilenstein.</p>
           </div>
-          <blockquote className="mt-12 border-l-4 border-adria pl-8 py-4 bg-gray-50 rounded-r-lg">
-            <p className="font-playfair text-xl md:text-2xl italic text-adria leading-relaxed mb-4">„Die Wahl Wiens als Standort ist Ausdruck unseres Anspruchs an Qualität und Frische."</p>
-            <cite className="font-lato text-graphite/70 not-italic">— Milan Prgomet, Geschäftsführer Wien</cite>
-          </blockquote>
         </div>
       </section>
 
-      <section className="section-container section-padding bg-gray-50">
-        <div className="text-center mb-12">
-          <h2 className="font-playfair text-3xl md:text-4xl font-semibold text-graphite mb-4">Die Gründer</h2>
-          <p className="font-lato text-graphite/70 max-w-2xl mx-auto">Drei Männer, eine Vision: Die beste Qualität der Adria direkt auf den Tisch zu bringen.</p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {founders.map((founder, index) => (
-            <div key={index} className="glass-card rounded-xl overflow-hidden shadow-2xl hover:-translate-y-2 transition-all duration-500">
-              <div className="aspect-[3/4] overflow-hidden"><img src={founder.image} alt={founder.name} className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" /></div>
-              <div className="p-6">
-                <h3 className="font-playfair text-xl font-semibold text-graphite mb-1">{founder.name}</h3>
-                <p className="font-lato text-sm text-adria mb-3 uppercase tracking-wider font-bold">{founder.role}</p>
-                <p className="font-lato text-sm text-graphite/70">{founder.description}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+
 
       <section className="section-container section-padding bg-white">
         <div className="text-center mb-12">
@@ -83,22 +58,21 @@ const AboutPage = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
           <div className="space-y-6 font-lato text-graphite/80 leading-relaxed text-lg">
             <p>Wir arbeiten eng mit über 20 familiengeführten Fischerbetrieben zusammen. Diese langjährigen Partnerschaften basieren auf Vertrauen, fairen Bedingungen und einem gemeinsamen Verständnis für Qualität.</p>
-            <p>Durch unseren direkten Kontakt und eigene Logistik stellen wir sicher, dass nachhaltige Standards eingehalten werden und der Fang ohne Umwege nach Wien gelangt.</p>
+            <p>Durch unsere langfristigen Partnerschaften sind wir für die Fischer zu einem verlässlichen Abnehmer geworden. Gleichzeitig ermöglicht uns diese Nähe zur Herkunft, Frische, Transparenz und Rückverfolgbarkeit unserer Produkte sicherzustellen.</p>
             <ul className="space-y-3 pt-4">
               <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-adria rounded-full" /><span className="text-graphite font-medium underline decoration-adria/30">Über 20 Partnerboote in der Adria</span></li>
               <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-adria rounded-full" /><span className="text-graphite font-medium underline decoration-adria/30">Faire Bedingungen für die Fischer</span></li>
-              <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-adria rounded-full" /><span className="text-graphite font-medium underline decoration-adria/30">Nachhaltige Fangmethoden</span></li>
+              <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-adria rounded-full" /><span className="text-graphite font-medium underline decoration-adria/30">Transparenz und Rückverfolgbarkeit</span></li>
             </ul>
           </div>
-          <div className="rounded-xl overflow-hidden shadow-2xl aspect-video bg-gray-100 flex items-center justify-center relative">
-            <video
-              className="w-full h-full object-cover"
-              controls
-              poster="/images/Thunfischfang.webp"
-            >
-              <source src="/videos/fishery_work.webm" type="video/mp4" />
-              Ihr Browser unterstützt das Video-Tag nicht.
-            </video>
+          <div className="rounded-xl overflow-hidden shadow-2xl aspect-video">
+            <PhotoSlider images={[
+              '/images/about/Fischer.jpg',
+              '/images/about/Fischer2.jpg',
+              '/images/about/Fischer_Sortieren.jpg',
+              '/images/about/Centaurus_Kroatien_Lieferwagen.jpg',
+              '/images/about/Centaurus_Produktion_Kroatien.jpeg',
+            ]} />
           </div>
         </div>
 
@@ -118,8 +92,7 @@ const AboutPage = () => {
             ></iframe>
           </div>
           <div className="order-1 lg:order-2 space-y-6 font-lato text-graphite/80 leading-relaxed text-lg">
-            <p>Mit AMARE haben wir eine Eigenmarke geschaffen, die unsere Leidenschaft für das Meer in jedem Produkt widerspiegelt. In unserer eigenen Produktion in Kroatien verarbeiten wir tagesfrische Fänge nach höchsten Standards.</p>
-            <p>Besonders stolz sind wir auf unsere Garnelen-Produkte, die das Herzstück der Marke AMARE bilden und für reine Herkunft und unverfälschten Geschmack stehen.</p>
+            <p>Eines der ersten Produkte, die das Unternehmen verkaufte: Kroatische Garnelen aus Wildfang. Daraus entwickelte sich die Eigenmarke AMARE. Die Geschichte dahinter erzählt Ivo Bartulović im Video.</p>
           </div>
         </div>
       </section>
@@ -127,7 +100,7 @@ const AboutPage = () => {
       <section className="section-container section-padding bg-gray-50">
         <div className="text-center mb-12">
           <h2 className="font-playfair text-3xl md:text-4xl font-semibold text-graphite mb-4">Unsere Meilensteine</h2>
-          <p className="font-lato text-graphite/70">Über 30 Jahre Geschichte</p>
+          <p className="font-lato text-graphite/70">Über 20 Jahre Geschichte</p>
         </div>
         <div className="max-w-4xl mx-auto">
           <div className="relative">

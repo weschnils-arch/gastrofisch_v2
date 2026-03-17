@@ -9,9 +9,10 @@ interface PillarCardProps {
   ctaLink: string;
   image: string;
   delay: number;
+  objectPosition?: string;
 }
 
-const PillarCard = ({ title, hoverText, ctaText, ctaLink, image, delay }: PillarCardProps) => {
+const PillarCard = ({ title, hoverText, ctaText, ctaLink, image, delay, objectPosition = 'center' }: PillarCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
@@ -37,7 +38,12 @@ const PillarCard = ({ title, hoverText, ctaText, ctaLink, image, delay }: Pillar
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="absolute inset-0">
-        <img src={image} alt={title} className={`w-full h-full object-cover transition-transform duration-1000 ease-out ${isHovered ? 'scale-110' : 'scale-100'}`} />
+        <img 
+          src={image} 
+          alt={title} 
+          className={`w-full h-full object-cover transition-transform duration-1000 ease-out ${isHovered ? 'scale-110' : 'scale-100'}`} 
+          style={{ objectPosition }}
+        />
       </div>
       <div className="absolute inset-0 bg-gradient-to-t from-graphite/90 via-graphite/20 to-transparent transition-opacity duration-500 opacity-60 group-hover:opacity-80" />
 
@@ -47,7 +53,7 @@ const PillarCard = ({ title, hoverText, ctaText, ctaLink, image, delay }: Pillar
           <div className={`overflow-hidden transition-all duration-700 ${isHovered ? 'max-h-40 opacity-100 mb-6' : 'max-h-0 opacity-0 mb-0'}`}>
             <p className="font-lato text-white/90 text-sm md:text-base leading-relaxed">{hoverText}</p>
           </div>
-          <div className="inline-flex items-center gap-2 text-white font-lato font-bold text-xs uppercase tracking-[0.2em] group/btn">
+          <div className="inline-flex items-center gap-2 text-white font-lato font-bold text-xs tracking-[0.2em] group/btn">
             {ctaText}
             <div className="w-8 h-[1px] bg-white/50 transition-all duration-300 group-hover/btn:w-12 group-hover/btn:bg-white" />
           </div>
@@ -76,16 +82,16 @@ const ThreePillarsSection = () => {
   }, []);
 
   const pillars = [
-    { title: 'Unsere Boutique', hoverText: 'Erlesener Fisch und Meeresfrüchte für anspruchsvolle Genießer. Erleben Sie ein exklusives Einkaufserlebnis in Wien-Neubau.', ctaText: 'Zum Geschäft', ctaLink: '/einzelhandel', image: '/images/retail/zollergasse.webp', delay: 0 },
-    { title: 'Für die Gastronomie', hoverText: 'Verlässliche Qualität und Lieferung für Wiens beste Restaurants. Direktimport aus der Adria, tagesfrisch geliefert.', ctaText: 'Zum Großhandel', ctaLink: '/grosshandel', image: '/images/thunfischfang_bg.webp', delay: 150 },
-    { title: 'Unser Bistro', hoverText: 'Frischer geht es nicht. Genießen Sie unsere Tagesfänge direkt vor Ort in unserem kleinen, feinen Bistro.', ctaText: 'Tisch reservieren', ctaLink: 'https://www.zenchef.com/', image: '/images/bistro_risotto.webp', delay: 300 },
+    { title: 'Fisch-Boutique', hoverText: 'Erlesener Fisch und Meeresfrüchte für anspruchsvolle Genießer. Erleben Sie ein exklusives Einkaufserlebnis in Wien-Neubau.', ctaText: 'ZUM GESCHÄFT', ctaLink: '/einzelhandel', image: '/images/retail/fisch-boutique.png', delay: 0, objectPosition: 'left' },
+    { title: 'Für die Gastronomie', hoverText: 'Verlässliche Qualität und Lieferung für Wiens beste Restaurants. Direktimport aus der Adria, tagesfrisch geliefert.', ctaText: 'ZUM GROẞHANDEL', ctaLink: '/grosshandel', image: '/images/grosshandel.jpg', delay: 150 },
+    { title: 'Bistro', hoverText: 'Frischer geht es nicht. Genießen Sie kostbare Fänge direkt vor Ort in einem kleinen, feinen Bistro.', ctaText: 'TISCH RESERVIEREN', ctaLink: 'https://bookings.zenchef.com/…?rid=381707&pid=1001', image: '/images/bistro.jpeg', delay: 300 },
   ];
 
   return (
     <section className="section-container section-padding bg-white">
       <div ref={titleRef} className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-        <h2 className={`font-playfair text-3xl md:text-4xl lg:text-5xl font-semibold text-adria mb-6 transition-all duration-600 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>Wähle dein Erlebnis</h2>
-        <p className={`font-lato text-base md:text-lg text-graphite leading-relaxed transition-all duration-600 delay-200 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>Ob für Ihr Restaurant, Ihr Zuhause oder einen unvergesslichen Moment in unserem Bistro – wir bieten Ihnen die beste Qualität der Adria.</p>
+        <h2 className={`font-playfair text-3xl md:text-4xl lg:text-5xl font-semibold text-adria mb-6 transition-all duration-600 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>Unsere Angebote</h2>
+        <p className={`font-lato text-base md:text-lg text-graphite leading-relaxed transition-all duration-600 delay-200 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>Ob für Ihr Restaurant, Ihr Zuhause oder einen unvergesslichen Moment im Bistro – wählen Sie aus unserem Angebot.</p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-14 lg:gap-20">
         {pillars.map((pillar, index) => (<PillarCard key={index} {...pillar} />))}

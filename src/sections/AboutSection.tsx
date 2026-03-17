@@ -29,13 +29,9 @@ const AboutSection = () => {
           <span className="inline-block font-lato text-xs font-semibold tracking-widest uppercase text-adria">Über Uns</span>
           <h2 className="font-playfair text-3xl md:text-4xl lg:text-5xl font-semibold text-graphite leading-tight">Mehr als nur Fisch.<br /><span className="text-adria">Eine Familiengeschichte.</span></h2>
           <div className="space-y-4 font-lato text-graphite/80 leading-relaxed">
-            <p>Um die Jahrtausendwende begann Ivo Bartulović in Split mit dem Handel eines Produkts, das die Identität unseres Unternehmens bis heute prägt: Kroatische Garnelen aus Wildfang. Später kamen immer mehr Produkte hinzu, der Kundenkreis wurde größer, die Mitarbeiterzahl stieg stetig.</p>
-            <p>2004 holte er seinen Bruder Toni mit ins Boot, der eigentlich nur eine Saison aushelfen wollte. Noch heute führen sie gemeinsam das Unternehmen Centaurus d.o.o. in Kroatien, das mittlerweile mehr als 170 Mitarbeiter beschäftigt.</p>
+            <p>Vom Ein-Mann-Betrieb mit zwei Tiefkühltruhen zur führenden Adresse für Fisch und Meeresprodukte in Dalmatien: Seit der Gründung 2002 steht Centaurus für Qualität und Wachstum. Gemeinsam mit seinem Bruder Toni baute Ivo Bartulović das Unternehmen zu einem Betrieb mit über 170 Mitarbeitern aus.</p>
+            <p>2019 folgte der nächste Schritt: Mit Unterstützung von Milan Prgomet eröffneten sie unter dem Namen „Gastro Fisch Brač“ ihre erste Fisch-Boutique in Wien – und brachten dalmatinische Spitzenqualität in die österreichische Hauptstadt.</p>
           </div>
-          <blockquote className="border-l-4 border-adria pl-6 py-2 my-8">
-            <p className="font-playfair text-lg md:text-xl italic text-adria leading-relaxed mb-3">„Die Wahl Wiens als Standort ist Ausdruck unseres Anspruchs an Qualität und Frische. In einer Stadt, in der kulinarische Standards hoch sind und Herkunft eine zentrale Rolle spielt, sehen wir den idealen Ort, um unsere Kompetenz im Fischhandel weiter auszubauen."</p>
-            <cite className="font-lato text-sm text-graphite/70 not-italic">— Milan Prgomet</cite>
-          </blockquote>
           <Link to="/ueber-uns" className="inline-flex items-center gap-2 btn-primary mt-4">Unsere Geschichte im Detail<ArrowRight size={18} /></Link>
         </div>
       </div>

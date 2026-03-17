@@ -21,8 +21,8 @@ const BistroTeaserSection = () => {
         <div className={`text-center max-w-2xl mx-auto transition-all duration-800 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
           <h2 className="font-playfair text-3xl sm:text-4xl md:text-5xl font-semibold text-white mb-6 leading-tight">Frisch auf den Tisch.</h2>
           <div className="w-16 h-0.5 bg-white/50 mx-auto mb-6" />
-          <p className="font-lato text-lg md:text-xl text-white/90 leading-relaxed mb-10">Besuchen Sie unser kleines, feines Bistro und erleben Sie den wahren Geschmack der Adria.</p>
-          <a href="https://www.zenchef.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 btn-white">Speisekarte ansehen & reservieren<ArrowRight size={18} /></a>
+          <p className="font-lato text-lg md:text-xl text-white/90 leading-relaxed mb-10">Besuchen Sie das kleine, feine Bistro und erleben Sie den wahren Geschmack der Adria.</p>
+          <a href="https://bookings.zenchef.com/results?rid=381707&pid=1001" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 btn-white">Speisekarte ansehen & reservieren<ArrowRight size={18} /></a>
         </div>
       </div>
     </section>

@@ -9,10 +9,6 @@ const HeroSection = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const scrollToAbout = () => {
-    const aboutSection = document.getElementById('about');
-    if (aboutSection) aboutSection.scrollIntoView({ behavior: 'smooth' });
-  };
 
   return (
     <section className="relative w-full h-screen min-h-[600px] overflow-hidden">
@@ -38,11 +34,10 @@ const HeroSection = () => {
           </h1>
           <div className={`w-24 h-0.5 bg-white/50 mx-auto mb-6 transition-all duration-600 delay-300 ${isLoaded ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'}`} />
           <p className={`font-lato text-lg sm:text-xl md:text-2xl text-white/90 mb-10 transition-all duration-800 delay-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            Direktimport von erstklassigem Fisch und Meeresfrüchten.<br className="hidden sm:block" />Tradition und Qualität. Seit 1990.
+            Der Ursprung zählt — besonders bei Fisch und Meeresfrüchten.<br className="hidden sm:block" />
+            Wir liefern erstklassige Qualität.<br className="hidden sm:block" />
+            Seit 2002 in Kroatien. Seit 2019 auch in Wien.
           </p>
-          <div className={`transition-all duration-600 delay-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <button onClick={scrollToAbout} className="btn-ghost text-base px-8 py-4">Unsere Philosophie</button>
-          </div>
         </div>
       </div>
       <div className={`absolute bottom-8 left-1/2 -translate-x-1/2 transition-all duration-600 delay-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>

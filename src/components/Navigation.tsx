@@ -34,7 +34,7 @@ const Navigation = ({ isScrolled }: NavigationProps) => {
           <div className="flex-1 flex justify-end items-center gap-12 xl:gap-16">
             {leftLinks.map((link) => (
               <Link key={link.path} to={link.path}
-                className={`relative font-lato text-[11px] xl:text-xs font-semibold tracking-[0.2em] uppercase whitespace-nowrap transition-all duration-300 ${isScrolled ? (isActive(link.path) ? 'text-adria' : 'text-graphite hover:text-adria') : (isActive(link.path) ? 'text-white' : 'text-white/80 hover:text-white')
+                className={`relative font-lato text-[11px] xl:text-xs font-semibold tracking-[0.2em] whitespace-nowrap transition-all duration-300 ${isScrolled ? (isActive(link.path) ? 'text-adria' : 'text-graphite hover:text-adria') : (isActive(link.path) ? 'text-white' : 'text-white/80 hover:text-white')
                   }`}>
                 {link.label}
                 <span className={`absolute -bottom-1 left-0 h-0.5 bg-current transition-all duration-500 ${isActive(link.path) ? 'w-full' : 'w-0 group-hover:w-full'}`} />
@@ -57,7 +57,7 @@ const Navigation = ({ isScrolled }: NavigationProps) => {
           <div className="flex-1 flex justify-start items-center gap-12 xl:gap-16">
             {rightLinks.map((link) => (
               <Link key={link.path} to={link.path}
-                className={`relative font-lato text-[11px] xl:text-xs font-semibold tracking-[0.2em] uppercase whitespace-nowrap transition-all duration-300 ${isScrolled ? (isActive(link.path) ? 'text-adria' : 'text-graphite hover:text-adria') : (isActive(link.path) ? 'text-white' : 'text-white/80 hover:text-white')
+                className={`relative font-lato text-[11px] xl:text-xs font-semibold tracking-[0.2em] whitespace-nowrap transition-all duration-300 ${isScrolled ? (isActive(link.path) ? 'text-adria' : 'text-graphite hover:text-adria') : (isActive(link.path) ? 'text-white' : 'text-white/80 hover:text-white')
                   }`}>
                 {link.label}
                 <span className={`absolute -bottom-1 left-0 h-0.5 bg-current transition-all duration-500 ${isActive(link.path) ? 'w-full' : 'w-0 group-hover:w-full'}`} />
