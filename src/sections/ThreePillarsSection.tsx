@@ -82,9 +82,9 @@ const ThreePillarsSection = () => {
   }, []);
 
   const pillars = [
-    { title: 'Fisch-Boutique', hoverText: 'Erlesener Fisch und Meeresfrüchte für anspruchsvolle Genießer. Erleben Sie ein exklusives Einkaufserlebnis in Wien-Neubau.', ctaText: 'ZUM GESCHÄFT', ctaLink: '/einzelhandel', image: '/images/retail/fisch-boutique.png', delay: 0, objectPosition: 'left' },
-    { title: 'Für die Gastronomie', hoverText: 'Verlässliche Qualität und Lieferung für Wiens beste Restaurants. Direktimport aus der Adria, tagesfrisch geliefert.', ctaText: 'ZUM GROẞHANDEL', ctaLink: '/grosshandel', image: '/images/grosshandel.jpg', delay: 150 },
-    { title: 'Bistro', hoverText: 'Frischer geht es nicht. Genießen Sie kostbare Fänge direkt vor Ort in einem kleinen, feinen Bistro.', ctaText: 'TISCH RESERVIEREN', ctaLink: 'https://bookings.zenchef.com/…?rid=381707&pid=1001', image: '/images/bistro.jpeg', delay: 300 },
+    { title: 'Fisch-Boutique', hoverText: 'Erlesener Fisch und Meeresfrüchte für anspruchsvolle Genießer. Erleben Sie ein exklusives Einkaufserlebnis in Wien-Neubau.', ctaText: 'ZUM GESCHÄFT', ctaLink: '/einzelhandel', image: '/images/retail/fisch-boutique.png', delay: 0, objectPosition: 'center 25%' },
+    { title: 'Für die Gastronomie', hoverText: 'Verlässliche Qualität und Lieferung für Wiens beste Restaurants. Direktimport aus der Adria, tagesfrisch geliefert.', ctaText: 'ZUM GROẞHANDEL', ctaLink: '/grosshandel', image: '/images/grosshandel.webp', delay: 150 },
+    { title: 'Bistro', hoverText: 'Frischer geht es nicht. Genießen Sie kostbare Fänge direkt vor Ort in einem kleinen, feinen Bistro.', ctaText: 'TISCH RESERVIEREN', ctaLink: 'https://bookings.zenchef.com/results?rid=381707&pid=1001', image: '/images/bistro.jpeg', delay: 300 },
   ];
 
   return (
@@ -93,7 +93,7 @@ const ThreePillarsSection = () => {
         <h2 className={`font-playfair text-3xl md:text-4xl lg:text-5xl font-semibold text-adria mb-6 transition-all duration-600 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>Unsere Angebote</h2>
         <p className={`font-lato text-base md:text-lg text-graphite leading-relaxed transition-all duration-600 delay-200 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>Ob für Ihr Restaurant, Ihr Zuhause oder einen unvergesslichen Moment im Bistro – wählen Sie aus unserem Angebot.</p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-14 lg:gap-20">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 md:gap-10 lg:gap-20">
         {pillars.map((pillar, index) => (<PillarCard key={index} {...pillar} />))}
       </div>
     </section>

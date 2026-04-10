@@ -26,8 +26,8 @@ const KontaktPage = () => {
         <div className="relative z-10 h-full flex items-center justify-center px-4">
           <div className="text-center max-w-3xl pt-24 md:pt-32">
             <span className="inline-block font-lato text-xs font-semibold tracking-widest uppercase text-white/80 mb-4">Kontakt</span>
-            <h1 className="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">Kontaktieren Sie uns</h1>
-            <p className="font-lato text-lg md:text-xl text-white/90">Wir freuen uns auf Ihre Nachricht</p>
+            <h1 className="font-playfair text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6">Kontaktieren Sie uns</h1>
+            <p className="font-lato text-base sm:text-lg md:text-xl text-white/90">Wir freuen uns auf Ihre Nachricht</p>
           </div>
         </div>
       </div>
@@ -60,7 +60,7 @@ const KontaktPage = () => {
             <div className="rounded-xl overflow-hidden h-[250px] shadow-lg">
               <iframe
                 title="Gastro Fisch Brač Standort"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2659.077!2d16.3487!3d48.2016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476d079e93f2849f%3A0x2ed651f7ae0a45c7!2sZollergasse%2012%2C%201070%20Wien%2C%20Austria!5e0!3m2!1sde!2sat!4v1"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2659.077!2d16.3487!3d48.2016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476d07be8a42c2cb%3A0xc474eb54e73ad498!2sGastro%20Fisch%20Bra%C4%8D!5e0!3m2!1sde!2sat!4v1"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -72,7 +72,7 @@ const KontaktPage = () => {
           </div>
 
           <div>
-            <div className="glass-card rounded-2xl p-8 md:p-10 shadow-3xl border-white/50 relative overflow-hidden">
+            <div className="glass-card rounded-2xl p-6 sm:p-8 md:p-10 shadow-3xl border-white/50 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-adria/5 blur-3xl rounded-full -translate-y-1/2 translate-x-1/2" />
               <h2 className="font-playfair text-2xl md:text-3xl font-semibold text-graphite mb-2">Nachricht senden</h2>
               <p className="font-lato text-graphite/60 mb-8 font-light italic">Wir beraten Sie gerne individuell und unverbindlich.</p>

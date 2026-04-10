@@ -15,8 +15,7 @@ const GrosshandelPage = () => {
   }, []);
 
   const benefits = [
-    { icon: Truck, title: 'Tagesfrische Lieferung', description: 'Direkt vom Boot auf den Tisch – unsere Lieferkette garantiert maximale Frische.' },
-    { icon: Award, title: 'Direktimport aus der Adria', description: 'Eigene Partnerschaften mit kroatischen Fischern seit 20 Jahren.' },
+    { icon: Award, title: 'Direktimport aus der Adria', description: 'Langjährige Zusammenarbeit mit kroatischen Fischern.' },
     { icon: Users, title: 'Persönliche Beratung', description: 'Unser Expertenteam steht Ihnen für alle Fragen zur Verfügung.' },
     { icon: Truck, title: 'Selbstabholung möglich', description: 'In unserem zentral gelegenen Shop in Wien-Neubau können Sie auch direkt vor Ort einkaufen.' },
   ];
@@ -24,7 +23,7 @@ const GrosshandelPage = () => {
   const processSteps = [
     { number: '01', title: 'Anfrage stellen', description: 'Kontaktieren Sie uns per Telefon, E-Mail oder über unser Kontaktformular.' },
     { number: '02', title: 'Persönliche Beratung', description: 'Wir besprechen Ihre Bedürfnisse und erstellen Ihnen ein individuelles Angebot.' },
-    { number: '03', title: 'Lieferung & Qualitätskontrolle', description: 'Termingenaue Lieferung mit garantierter Qualität direkt zu Ihnen.' },
+    { number: '03', title: 'Lieferung & Qualitätskontrolle', description: 'Termingenaue Lieferung mit garantierter Qualität direkt zu Ihnen oder Abholung in unserem Geschäft.' },
   ];
 
   const deliveryConditions = [
@@ -43,8 +42,8 @@ const GrosshandelPage = () => {
         <div className="relative z-10 h-full flex items-center justify-center px-4">
           <div className={`text-center max-w-3xl pt-24 md:pt-32 transition-all duration-800 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
             <span className="inline-block font-lato text-xs font-semibold tracking-widest text-white/80 mb-4">Großhandel</span>
-            <h1 className="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">Für die Gastronomie</h1>
-            <p className="font-lato text-lg md:text-xl text-white/90">Verlässliche Qualität und Lieferung für Wiens beste Restaurants</p>
+            <h1 className="font-playfair text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6">Für die Gastronomie</h1>
+            <p className="font-lato text-base sm:text-lg md:text-xl text-white/90">Verlässliche Qualität und Lieferung für Wiens beste Restaurants</p>
           </div>
         </div>
       </div>
@@ -54,9 +53,9 @@ const GrosshandelPage = () => {
           <h2 className="font-playfair text-3xl md:text-4xl font-semibold text-graphite mb-6">Unser Versprechen</h2>
           <p className="font-lato text-graphite/70 leading-relaxed">Als verlässlicher Partner der Wiener Gastronomie bieten wir Ihnen nicht nur erstklassige Produkte, sondern einen umfassenden Service.</p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {benefits.map((benefit, index) => (
-            <div key={index} className="p-8 glass-card rounded-2xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group">
+            <div key={index} className="p-6 sm:p-8 glass-card rounded-2xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group">
               <div className="w-14 h-14 bg-adria/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-adria group-hover:text-white transition-all duration-300">
                 <benefit.icon className="w-7 h-7 text-adria group-hover:text-white transition-colors duration-300" />
               </div>
@@ -79,11 +78,11 @@ const GrosshandelPage = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="font-playfair text-3xl md:text-4xl font-semibold text-graphite mb-6">Produktkatalog</h2>
-            <p className="font-lato text-graphite/70 leading-relaxed mb-6">Unser umfangreicher Katalog umfasst alle Fisch- und Meeresfrüchte-Sorten, die wir für Sie beschaffen können.</p>
+            <p className="font-lato text-graphite/70 leading-relaxed mb-6">Stöbern Sie in unserem umfangreichen Katalog.</p>
             <div className="space-y-3 mb-8">
               <div className="flex items-center gap-3"><Check className="w-5 h-5 text-adria flex-shrink-0" /><span className="font-lato text-graphite">Über 100 verschiedene Produkte</span></div>
-              <div className="flex items-center gap-3"><Check className="w-5 h-5 text-adria flex-shrink-0" /><span className="font-lato text-graphite">Wochenaktionen und Saison-Specials</span></div>
-              <div className="flex items-center gap-3"><Check className="w-5 h-5 text-adria flex-shrink-0" /><span className="font-lato text-graphite">Preise auf Anfrage</span></div>
+              <div className="flex items-center gap-3"><Check className="w-5 h-5 text-adria flex-shrink-0" /><span className="font-lato text-graphite">Specials aus Kroatien</span></div>
+              <div className="flex items-center gap-3"><Check className="w-5 h-5 text-adria flex-shrink-0" /><span className="font-lato text-graphite">Individuelle Angebote</span></div>
             </div>
             <a
               href="/PDF_ONLINE_katalog_2025.pdf"
@@ -175,16 +174,17 @@ const GrosshandelPage = () => {
       </section>
 
       {/* Sticky WhatsApp Button */}
-      <div className="fixed bottom-8 right-8 z-50">
+      <div className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-50">
         <a
           href="https://wa.me/436765404906"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-2xl hover:bg-[#20ba5a] transition-all duration-300 hover:scale-110 active:scale-95 group"
+          className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-[#25D366] text-white rounded-full shadow-2xl hover:bg-[#20ba5a] transition-all duration-300 hover:scale-110 active:scale-95 group"
           title="WhatsApp Kontakt"
         >
-          <MessageCircle size={28} />
-          <span className="absolute right-full mr-4 bg-white text-graphite px-4 py-2 rounded-lg text-sm font-bold shadow-xl opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all pointer-events-none whitespace-nowrap border border-gray-100">
+          <MessageCircle size={24} className="sm:hidden" />
+          <MessageCircle size={28} className="hidden sm:block" />
+          <span className="hidden sm:block absolute right-full mr-4 bg-white text-graphite px-4 py-2 rounded-lg text-sm font-bold shadow-xl opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all pointer-events-none whitespace-nowrap border border-gray-100">
             Haben Sie Fragen?
           </span>
         </a>
@@ -193,33 +193,33 @@ const GrosshandelPage = () => {
       {/* PDF Modal */}
       {showPdfModal && (
         <div
-          className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 md:p-8"
+          className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4 md:p-8"
           onClick={() => setShowPdfModal(false)}
         >
           <div
-            className="relative w-full max-w-5xl h-[90vh] bg-white rounded-2xl shadow-2xl overflow-hidden"
+            className="relative w-full max-w-5xl h-[90vh] bg-white rounded-xl sm:rounded-2xl shadow-2xl overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
-            <div className="absolute top-0 left-0 right-0 z-10 bg-white/95 backdrop-blur-sm border-b border-gray-200 px-6 py-4 flex items-center justify-between">
-              <div>
-                <h3 className="font-playfair text-xl font-semibold text-graphite">Gastro Fisch Brač Katalog 2025</h3>
-                <p className="font-lato text-sm text-graphite/60">48 Seiten</p>
+            <div className="absolute top-0 left-0 right-0 z-10 bg-white/95 backdrop-blur-sm border-b border-gray-200 px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-2">
+              <div className="min-w-0">
+                <h3 className="font-playfair text-base sm:text-xl font-semibold text-graphite truncate">Gastro Fisch Brač Katalog 2025</h3>
+                <p className="font-lato text-xs sm:text-sm text-graphite/60">48 Seiten</p>
               </div>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
                 <a
                   href="/PDF_ONLINE_katalog_2025.pdf"
                   download="Gastro_Fisch_Brac_Katalog_2025.pdf"
-                  className="inline-flex items-center gap-2 bg-adria text-white px-4 py-2 rounded-lg font-lato font-bold hover:bg-adria/90 transition-colors"
+                  className="inline-flex items-center gap-2 bg-adria text-white px-3 sm:px-4 py-2 rounded-lg font-lato font-bold text-sm hover:bg-adria/90 transition-colors"
                 >
-                  <Download size={18} />
-                  Download
+                  <Download size={16} />
+                  <span className="hidden sm:inline">Download</span>
                 </a>
                 <button
                   onClick={() => setShowPdfModal(false)}
-                  className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+                  className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
                 >
-                  <X size={20} className="text-graphite" />
+                  <X size={18} className="text-graphite" />
                 </button>
               </div>
             </div>

@@ -13,15 +13,6 @@ interface Product {
 
 const products: Product[] = [
   {
-    id: 'seeteufel',
-    name: 'Seeteufel',
-    scientificName: 'Lophius piscatorius',
-    illustration: '/images/illustrations/seeteufel.png',
-    description: 'Der Seeteufel ist ein geschätzter Speisefisch mit festem, weißem Fleisch.',
-    features: ['Festes, weißes Fleisch', 'Milder Geschmack'],
-    recipeLink: '/rezepte?recipe=27'
-  },
-  {
     id: 'scampi',
     name: 'Scampi',
     scientificName: 'Nephrops norvegicus',
@@ -151,28 +142,10 @@ const products: Product[] = [
     id: 'calamari',
     name: 'Calamari',
     scientificName: 'Loligo vulgaris',
-    illustration: '/images/illustrations/pfeilkalmar.png',
+    illustration: '/images/illustrations/calamari.png',
     description: 'Der Genuss von Calamari reicht bereits in die Antike zurück.',
     features: ['Zartes, mildes Fleisch bei kurzer Garzeit', 'Vielseitig einsetzbar: Gegrillt, gefüllt oder als frittierte Calamari-Ringe'],
     recipeLink: '/rezepte?recipe=19'
-  },
-  {
-    id: 'yellowfin-tuna',
-    name: 'Yellowfin Tuna',
-    scientificName: 'Thunnus albacares',
-    illustration: '/images/illustrations/yellowfin_tuna.png',
-    description: 'Der Gelbflossen-Thunfisch ist bekannt für sein helles, festes Fleisch und seinen milden Geschmack.',
-    features: ['Helles, festes Fleisch', 'Milder Geschmack', 'Vielseitig verwendbar'],
-    recipeLink: '/rezepte?recipe=26'
-  },
-  {
-    id: 'rochen',
-    name: 'Rochen',
-    scientificName: 'Raja clavata',
-    illustration: '/images/illustrations/rochen.png',
-    description: 'Der Rochen ist eine Delikatesse, besonders die Rochenflügel sind in der gehobenen Küche sehr geschätzt.',
-    features: ['Zartes Fleisch', 'Einzigartige Textur', 'Delikatesse'],
-    recipeLink: '/rezepte?category=fisch'
   },
   {
     id: 'arche-noah-muschel',
@@ -210,10 +183,10 @@ const ProductShowcaseSection = () => {
   return (
     <section ref={sectionRef} className="section-container section-padding bg-white">
       <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-        <h2 className={`font-playfair text-3xl md:text-4xl lg:text-5xl font-semibold text-adria mb-6 transition-all duration-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>Qualität beginnt am Ursprung</h2>
+        <h2 className={`font-playfair text-3xl md:text-4xl lg:text-5xl font-semibold text-adria mb-6 transition-all duration-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>Qualität beginnt beim Ursprung</h2>
         <p className={`font-lato text-base md:text-lg text-graphite leading-relaxed transition-all duration-600 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>Von Wildfang bis zur Zucht – jedes Produkt erzählt seine eigene Geschichte.</p>
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-12 lg:gap-16">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-12 lg:gap-16">
         {products.map((product, index) => (
           <div key={product.id} onClick={() => setSelectedProduct(product)} className={`group relative bg-gray-50 rounded-xl p-4 md:p-6 cursor-pointer transition-all duration-500 hover:shadow-lg hover:-translate-y-1 ${visibleCards[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <div className="aspect-square flex items-center justify-center mb-4">
@@ -225,13 +198,13 @@ const ProductShowcaseSection = () => {
         ))}
       </div>
       <Dialog open={!!selectedProduct} onOpenChange={() => setSelectedProduct(null)}>
-        <DialogContent className="max-w-2xl p-0 overflow-hidden">
+        <DialogContent className="max-w-2xl p-0 overflow-hidden max-h-[90vh] overflow-y-auto">
           {selectedProduct && (
             <div className="grid grid-cols-1 md:grid-cols-2">
-              <div className="bg-gray-50 p-8 flex items-center justify-center">
-                <img src={selectedProduct.illustration} alt={selectedProduct.name} className="w-full max-w-[200px] h-auto object-contain" />
+              <div className="bg-gray-50 p-6 sm:p-8 flex items-center justify-center">
+                <img src={selectedProduct.illustration} alt={selectedProduct.name} className="w-full max-w-[160px] sm:max-w-[200px] h-auto object-contain" />
               </div>
-              <div className="p-6 md:p-8">
+              <div className="p-5 sm:p-6 md:p-8">
                 <DialogHeader>
                   <DialogTitle className="font-playfair text-2xl md:text-3xl font-semibold text-adria mb-1">{selectedProduct.name}</DialogTitle>
                   {selectedProduct.scientificName && <p className="font-lato text-sm italic text-graphite/60 mb-4">{selectedProduct.scientificName}</p>}

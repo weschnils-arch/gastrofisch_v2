@@ -35,10 +35,15 @@
 
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   body {
     @apply bg-white text-graphite font-lato antialiased;
+    overflow-x: hidden;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    word-break: break-word;
   }
 
   h1,

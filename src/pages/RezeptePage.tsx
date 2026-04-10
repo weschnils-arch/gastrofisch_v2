@@ -48,8 +48,8 @@ const RezeptePage = () => {
         <div className="relative z-10 h-full flex items-center justify-center px-4">
           <div className="text-center max-w-3xl pt-24 md:pt-32">
             <span className="inline-block font-lato text-[10px] font-bold tracking-[0.25em] uppercase text-white/80 mb-4">Kulinarik</span>
-            <h1 className="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">Rezepte aus Dalmatien</h1>
-            <p className="font-lato text-base md:text-lg text-white/90 max-w-2xl mx-auto leading-relaxed">Entdecken Sie die Geheimnisse der mediterranen Küche. Von herzhaften Klassikern bis hin zu leichten Meeresfrüchte-Gerichten.</p>
+            <h1 className="font-playfair text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight">Rezepte aus Dalmatien</h1>
+            <p className="font-lato text-sm sm:text-base md:text-lg text-white/90 max-w-2xl mx-auto leading-relaxed">Entdecken Sie die Geheimnisse der mediterranen Küche. Von herzhaften Klassikern bis hin zu leichten Meeresfrüchte-Gerichten.</p>
           </div>
         </div>
       </div>
@@ -57,10 +57,10 @@ const RezeptePage = () => {
       <section className="section-container pb-20">
 
         <div className="flex flex-col md:flex-row gap-6 items-center justify-between mb-12">
-          <div className="flex flex-wrap justify-center md:justify-start gap-3">
+          <div className="flex flex-wrap justify-center md:justify-start gap-2 sm:gap-3">
             {categories.map((cat) => (
               <button key={cat.id} onClick={() => setActiveCategory(cat.id)}
-                className={`px-6 py-2.5 rounded-full font-lato text-xs font-bold uppercase tracking-wider transition-all duration-300 ${activeCategory === cat.id ? 'bg-adria text-white shadow-lg' : 'bg-white text-graphite/60 hover:bg-gray-100'}`}
+                className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-full font-lato text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 ${activeCategory === cat.id ? 'bg-adria text-white shadow-lg' : 'bg-white text-graphite/60 hover:bg-gray-100'}`}
               >
                 {cat.label}
               </button>

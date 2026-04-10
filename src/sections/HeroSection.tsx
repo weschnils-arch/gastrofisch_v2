@@ -29,11 +29,11 @@ const HeroSection = () => {
       <div className="absolute inset-0 hero-overlay" />
       <div className="relative z-10 h-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-4xl mx-auto">
-          <h1 className={`font-playfair text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6 transition-all duration-800 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <h1 className={`font-playfair text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white leading-tight mb-4 sm:mb-6 transition-all duration-800 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             Taste the origin.
           </h1>
-          <div className={`w-24 h-0.5 bg-white/50 mx-auto mb-6 transition-all duration-600 delay-300 ${isLoaded ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'}`} />
-          <p className={`font-lato text-lg sm:text-xl md:text-2xl text-white/90 mb-10 transition-all duration-800 delay-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <div className={`w-16 sm:w-24 h-0.5 bg-white/50 mx-auto mb-4 sm:mb-6 transition-all duration-600 delay-300 ${isLoaded ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'}`} />
+          <p className={`font-lato text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-8 sm:mb-10 transition-all duration-800 delay-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             Der Ursprung zählt — besonders bei Fisch und Meeresfrüchten.<br className="hidden sm:block" />
             Wir liefern erstklassige Qualität.<br className="hidden sm:block" />
             Seit 2002 in Kroatien. Seit 2019 auch in Wien.

@@ -23,8 +23,8 @@ const EinzelhandelPage = () => {
         <div className="relative z-10 h-full flex items-center justify-center px-4">
           <div className={`text-center max-w-3xl pt-24 md:pt-32 transition-all duration-800 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
             <span className="inline-block font-lato text-xs font-semibold tracking-widest uppercase text-white/80 mb-4">Einzelhandel</span>
-            <h1 className="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">Fisch-Boutique</h1>
-            <p className="font-lato text-lg md:text-xl text-white/90">Erlesener Fisch und Meeresfrüchte für anspruchsvolle Genießer.<br className="hidden sm:block" />Freitags und Samstags können Sie unseren Fisch direkt vor Ort genießen.</p>
+            <h1 className="font-playfair text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6">Fisch-Boutique</h1>
+            <p className="font-lato text-base sm:text-lg md:text-xl text-white/90 max-w-2xl mx-auto">Erlesener Fisch und Meeresfrüchte für anspruchsvolle Genießer.<br className="hidden sm:block" />Holen Sie sich eine Brise Meeresluft in Ihre Küche.</p>
           </div>
         </div>
       </div>
@@ -48,7 +48,7 @@ const EinzelhandelPage = () => {
           <div className="space-y-8">
             <div className="glass-card rounded-xl border border-adria/10 p-6 md:p-8 bg-adria/5">
               <h3 className="font-playfair text-xl font-semibold text-adria mb-4">Unser Bistro-Tipp</h3>
-              <p className="font-lato text-graphite/80 leading-relaxed mb-6">Freitags und Samstags können Sie unseren Fisch direkt vor Ort genießen. Unser Bistro ist das perfekte „Lunch Add-On“ zu Ihrem Einkauf – einfach, ehrlich und von höchster Qualität.</p>
+              <p className="font-lato text-graphite/80 leading-relaxed mb-6">Holen Sie sich eine Brise Meeresluft in Ihre Küche. Unser Bistro ist das perfekte „Lunch Add-On“ zu Ihrem Einkauf – einfach, ehrlich und von höchster Qualität.</p>
               <a
                 href="https://bookings.zenchef.com/results?rid=381707&pid=1001"
                 target="_blank"
@@ -71,7 +71,7 @@ const EinzelhandelPage = () => {
             <div className="rounded-xl overflow-hidden h-[250px] shadow-lg">
               <iframe
                 title="Gastro Fisch Brač Standort"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2659.077!2d16.3487!3d48.2016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476d079e93f2849f%3A0x2ed651f7ae0a45c7!2sZollergasse%2012%2C%201070%20Wien%2C%20Austria!5e0!3m2!1sde!2sat!4v1"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2659.077!2d16.3487!3d48.2016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476d07be8a42c2cb%3A0xc474eb54e73ad498!2sGastro%20Fisch%20Bra%C4%8D!5e0!3m2!1sde!2sat!4v1"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

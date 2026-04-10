@@ -1,6 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { useState } from 'react';
-import { } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 interface NavigationProps {
   isScrolled: boolean;
@@ -9,6 +8,21 @@ interface NavigationProps {
 const Navigation = ({ isScrolled }: NavigationProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location.pathname]);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [isMobileMenuOpen]);
 
   const navLinks = [
     { path: '/', label: 'Home' },
@@ -26,11 +40,10 @@ const Navigation = ({ isScrolled }: NavigationProps) => {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isMobileMenuOpen ? 'bg-white shadow-lg py-6' : (isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg py-6' : 'bg-transparent py-10')}`}>
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isMobileMenuOpen ? 'bg-white shadow-lg py-4 sm:py-6' : (isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg py-4 sm:py-6' : 'bg-transparent py-6 sm:py-10')}`}>
       <div className="section-container">
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center justify-between w-full">
-          {/* Left Links */}
           <div className="flex-1 flex justify-end items-center gap-12 xl:gap-16">
             {leftLinks.map((link) => (
               <Link key={link.path} to={link.path}
@@ -42,7 +55,6 @@ const Navigation = ({ isScrolled }: NavigationProps) => {
             ))}
           </div>
 
-          {/* Centered Logo */}
           <div className="flex-shrink-0 px-16 xl:px-24">
             <Link to="/" className="relative z-10 block">
               <img
@@ -53,7 +65,6 @@ const Navigation = ({ isScrolled }: NavigationProps) => {
             </Link>
           </div>
 
-          {/* Right Links */}
           <div className="flex-1 flex justify-start items-center gap-12 xl:gap-16">
             {rightLinks.map((link) => (
               <Link key={link.path} to={link.path}
@@ -68,16 +79,16 @@ const Navigation = ({ isScrolled }: NavigationProps) => {
 
         {/* Mobile Navigation Bar */}
         <div className="lg:hidden flex items-center justify-between">
-          <Link to="/" className="relative z-10">
+          <Link to="/" className="relative z-[60]">
             <img
               src={isMobileMenuOpen || isScrolled ? "/images/logo_grau.svg" : "/images/logo_weiss.svg"}
               alt="Gastro Fisch Brač"
-              className="h-8 w-auto transition-all duration-500"
+              className="h-7 sm:h-8 w-auto transition-all duration-500"
             />
           </Link>
 
           <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`z-50 flex flex-col items-center justify-center w-10 h-10 rounded-full transition-all duration-300 ${isMobileMenuOpen ? 'text-adria bg-adria/10' : (isScrolled ? 'text-graphite bg-black/5' : 'text-white bg-white/10')} ${isMobileMenuOpen ? 'burger-active' : ''}`}
+            className={`relative z-[60] flex flex-col items-center justify-center w-10 h-10 rounded-full transition-all duration-300 ${isMobileMenuOpen ? 'text-adria bg-adria/10' : (isScrolled ? 'text-graphite bg-black/5' : 'text-white bg-white/10')} ${isMobileMenuOpen ? 'burger-active' : ''}`}
             aria-label="Toggle menu">
             <span className="burger-line" />
             <span className="burger-line" />
@@ -86,17 +97,21 @@ const Navigation = ({ isScrolled }: NavigationProps) => {
         </div>
       </div>
 
-      <div className={`lg:hidden fixed inset-0 top-0 bg-[#ffffff] z-40 transform transition-transform duration-700 ease-in-out ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`} style={{ backgroundColor: '#ffffff' }}>
-        <div className="flex flex-col h-full p-8 pt-32 space-y-6 bg-white">
-          <img src="/images/logo_grau.svg" alt="Logo" className="h-16 w-auto mx-auto mb-8" />
-          {navLinks.map((link) => (
-            <Link key={link.path} to={link.path} onClick={() => setIsMobileMenuOpen(false)}
-              className={`font-lato text-2xl font-light tracking-wide py-4 border-b border-gray-100 flex justify-between items-center ${isActive(link.path) ? 'text-adria font-medium' : 'text-graphite'}`}>
-              {link.label}
-              <span className="text-adria/30">→</span>
-            </Link>
-          ))}
-          <a href="https://www.zenchef.com/" target="_blank" rel="noopener noreferrer" className="btn-primary mt-auto text-lg py-5">
+      {/* Mobile Menu Overlay */}
+      <div className={`lg:hidden fixed inset-0 bg-white z-[55] transform transition-transform duration-500 ease-in-out ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+        <div className="flex flex-col h-full px-6 sm:px-10 pt-28 sm:pt-32 pb-8 overflow-y-auto">
+          <img src="/images/logo_grau.svg" alt="Logo" className="h-12 sm:h-14 w-auto mx-auto mb-8 sm:mb-10" />
+          <nav className="flex flex-col gap-1">
+            {navLinks.map((link) => (
+              <Link key={link.path} to={link.path} onClick={() => setIsMobileMenuOpen(false)}
+                className={`font-lato text-xl sm:text-2xl font-light tracking-wide py-4 border-b border-gray-100 flex justify-between items-center ${isActive(link.path) ? 'text-adria font-medium' : 'text-graphite'}`}>
+                {link.label}
+                <span className="text-adria/30 text-lg">→</span>
+              </Link>
+            ))}
+          </nav>
+          <a href="https://bookings.zenchef.com/results?rid=381707&pid=1001" target="_blank" rel="noopener noreferrer"
+            className="btn-primary mt-auto text-base sm:text-lg py-4 sm:py-5 w-full text-center">
             Bistro Reservierung
           </a>
         </div>

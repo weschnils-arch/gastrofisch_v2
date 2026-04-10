@@ -12,7 +12,7 @@ interface PhotoSliderProps {
 
 export function PhotoSlider({ images }: PhotoSliderProps) {
     return (
-        <div className="w-full max-w-4xl mx-auto px-12">
+        <div className="w-full max-w-4xl mx-auto relative">
             <Carousel
                 opts={{
                     align: "start",
@@ -20,9 +20,9 @@ export function PhotoSlider({ images }: PhotoSliderProps) {
                 }}
                 className="w-full"
             >
-                <CarouselContent className="-ml-4">
+                <CarouselContent>
                     {images.map((image, index) => (
-                        <CarouselItem key={index} className="pl-4 md:basis-1/2">
+                        <CarouselItem key={index} className="basis-full">
                             <div className="overflow-hidden rounded-xl shadow-lg bg-white">
                                 <img
                                     src={image}
@@ -33,8 +33,8 @@ export function PhotoSlider({ images }: PhotoSliderProps) {
                         </CarouselItem>
                     ))}
                 </CarouselContent>
-                <CarouselPrevious className="hidden md:flex -left-12 h-10 w-10 border-adria/20 text-adria hover:bg-adria/10" />
-                <CarouselNext className="hidden md:flex -right-12 h-10 w-10 border-adria/20 text-adria hover:bg-adria/10" />
+                <CarouselPrevious className="left-3 h-10 w-10 bg-white/80 backdrop-blur-sm border-0 shadow-lg text-graphite hover:bg-white" />
+                <CarouselNext className="right-3 h-10 w-10 bg-white/80 backdrop-blur-sm border-0 shadow-lg text-graphite hover:bg-white" />
             </Carousel>
         </div>
     )

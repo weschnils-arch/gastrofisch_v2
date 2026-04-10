@@ -17,7 +17,7 @@ const ImpressumPage = () => {
                 <div className="absolute inset-0 bg-graphite/40 backdrop-blur-[2px]" />
                 <div className="absolute inset-0 flex items-center justify-center pt-20">
                     <div className="text-center text-white px-4">
-                        <h1 className="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Impressum</h1>
+                        <h1 className="font-playfair text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Impressum</h1>
                         <p className="font-lato text-white/80 tracking-widest uppercase text-sm md:text-base">Gastro Fisch Brač</p>
                     </div>
                 </div>

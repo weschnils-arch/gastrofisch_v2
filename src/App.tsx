@@ -27,7 +27,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-white overflow-x-hidden">
         <Navigation isScrolled={isScrolled} />
         <main>
           <Routes>
