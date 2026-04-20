@@ -79,18 +79,16 @@ const AboutPage = () => {
               <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-adria rounded-full" /><span className="text-graphite font-medium underline decoration-adria/30">{t({ de: 'Transparenz und Rückverfolgbarkeit', en: 'Transparency and traceability' })}</span></li>
             </ul>
           </div>
-          <div className="rounded-xl overflow-hidden shadow-2xl">
-            <PhotoSlider
-              orientation="portrait"
-              images={[
-                { src: '/images/about/Fischer.jpg' },
-                { src: '/images/about/Fischer2.jpg' },
-                { src: '/images/about/Fischer_Sortieren.jpg' },
-                { src: '/images/about/Centaurus_Kroatien_Lieferwagen.jpg' },
-                { src: '/images/about/Centaurus_Produktion_Kroatien.jpeg' },
-              ]}
-            />
-          </div>
+          <PhotoSlider
+            orientation="portrait"
+            images={[
+              { src: '/images/about/Fischer.jpg' },
+              { src: '/images/about/Fischer2.jpg' },
+              { src: '/images/about/Fischer_Sortieren.jpg' },
+              { src: '/images/about/Centaurus_Kroatien_Lieferwagen.jpg' },
+              { src: '/images/about/Centaurus_Produktion_Kroatien.jpeg' },
+            ]}
+          />
         </div>
 
         <div className="text-center mb-12">
