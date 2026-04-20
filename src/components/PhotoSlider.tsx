@@ -29,7 +29,10 @@ const aspectClass = (o: Orientation) => {
 
 export function PhotoSlider({ images, orientation = 'landscape' }: PhotoSliderProps) {
     const items = images.map(normalize);
-    const outerMax = orientation === 'landscape' ? 'max-w-4xl' : '';
+    const outerMax =
+        orientation === 'portrait' ? 'max-w-sm'       // ~384px wide, 3:4 = ~512px tall
+        : orientation === 'square' ? 'max-w-md'
+        : 'max-w-4xl';
     return (
         <div className={`w-full ${outerMax} mx-auto relative`}>
             <Carousel
