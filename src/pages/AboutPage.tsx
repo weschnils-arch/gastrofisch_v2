@@ -80,13 +80,16 @@ const AboutPage = () => {
             </ul>
           </div>
           <div className="rounded-xl overflow-hidden shadow-2xl">
-            <PhotoSlider images={[
-              { src: '/images/about/Fischer.jpg', objectPosition: 'center top' },
-              { src: '/images/about/Fischer2.jpg', objectPosition: 'center top' },
-              { src: '/images/about/Fischer_Sortieren.jpg', objectPosition: 'center top' },
-              { src: '/images/about/Centaurus_Kroatien_Lieferwagen.jpg' },
-              { src: '/images/about/Centaurus_Produktion_Kroatien.jpeg' },
-            ]} />
+            <PhotoSlider
+              orientation="portrait"
+              images={[
+                { src: '/images/about/Fischer.jpg' },
+                { src: '/images/about/Fischer2.jpg' },
+                { src: '/images/about/Fischer_Sortieren.jpg' },
+                { src: '/images/about/Centaurus_Kroatien_Lieferwagen.jpg' },
+                { src: '/images/about/Centaurus_Produktion_Kroatien.jpeg' },
+              ]}
+            />
           </div>
         </div>
 

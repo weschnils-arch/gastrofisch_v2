@@ -11,17 +11,31 @@ export interface PhotoSliderImage {
     objectPosition?: string;
 }
 
+type Orientation = 'landscape' | 'portrait' | 'square';
+
 interface PhotoSliderProps {
     images: Array<string | PhotoSliderImage>;
+    orientation?: Orientation;
 }
 
 const normalize = (img: string | PhotoSliderImage): PhotoSliderImage =>
     typeof img === 'string' ? { src: img } : img;
 
-export function PhotoSlider({ images }: PhotoSliderProps) {
+const aspectClass = (o: Orientation) => {
+    if (o === 'portrait') return 'aspect-[3/4]';
+    if (o === 'square') return 'aspect-square';
+    return 'aspect-[4/3]';
+};
+
+const maxWidthClass = (o: Orientation) => {
+    if (o === 'portrait') return 'max-w-md';
+    return 'max-w-4xl';
+};
+
+export function PhotoSlider({ images, orientation = 'landscape' }: PhotoSliderProps) {
     const items = images.map(normalize);
     return (
-        <div className="w-full max-w-4xl mx-auto relative">
+        <div className={`w-full ${maxWidthClass(orientation)} mx-auto relative`}>
             <Carousel
                 opts={{
                     align: "start",
@@ -36,7 +50,7 @@ export function PhotoSlider({ images }: PhotoSliderProps) {
                                 <img
                                     src={img.src}
                                     alt={`Gastrofish Gallery ${index + 1}`}
-                                    className="w-full aspect-[4/3] object-cover transition-transform duration-700 hover:scale-105"
+                                    className={`w-full ${aspectClass(orientation)} object-cover transition-transform duration-700 hover:scale-105`}
                                     style={{ objectPosition: img.objectPosition ?? 'center' }}
                                     loading="lazy"
                                 />
