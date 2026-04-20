@@ -22,7 +22,7 @@ const normalize = (img: string | PhotoSliderImage): PhotoSliderImage =>
     typeof img === 'string' ? { src: img } : img;
 
 const aspectClass = (o: Orientation) => {
-    if (o === 'portrait') return 'aspect-[3/4]';
+    if (o === 'portrait') return 'aspect-[4/5]';
     if (o === 'square') return 'aspect-square';
     return 'aspect-[4/3]';
 };
@@ -30,7 +30,7 @@ const aspectClass = (o: Orientation) => {
 export function PhotoSlider({ images, orientation = 'landscape' }: PhotoSliderProps) {
     const items = images.map(normalize);
     const outerMax =
-        orientation === 'portrait' ? 'max-w-sm'       // ~384px wide, 3:4 = ~512px tall
+        orientation === 'portrait' ? 'max-w-xl'       // fills about half of a wide row, aspect 4:5
         : orientation === 'square' ? 'max-w-md'
         : 'max-w-4xl';
     return (
