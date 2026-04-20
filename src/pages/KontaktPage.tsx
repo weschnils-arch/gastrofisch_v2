@@ -44,20 +44,24 @@ const KontaktPage = () => {
 
             <div className="space-y-4">
               {[
-                { icon: MapPin, title: t({ de: 'Adresse Fisch-Boutique', en: 'Fish Boutique Address' }), content: <><p>Gastro Fisch Brač</p><p>Zollergasse 12</p><p>1070 {t({ de: 'Wien', en: 'Vienna' })}</p></> },
-                { icon: MapPin, title: t({ de: 'Firmensitz Centaurus GmbH', en: 'Registered Office Centaurus GmbH' }), content: <><p>Centaurus GmbH</p><p>Lindengasse 30/1-4</p><p>1070 {t({ de: 'Wien', en: 'Vienna' })}</p></> },
+                { icon: MapPin, eyebrow: t({ de: 'Fisch-Boutique', en: 'Fish Boutique' }), title: 'Gastro Fisch Brač', content: <><p>Zollergasse 12</p><p>1070 {t({ de: 'Wien', en: 'Vienna' })}</p></> },
+                { icon: MapPin, eyebrow: t({ de: 'Firmensitz', en: 'Registered Office' }), title: 'Centaurus GmbH', content: <><p>Lindengasse 30/1-4</p><p>1070 {t({ de: 'Wien', en: 'Vienna' })}</p></> },
                 { icon: Clock, title: t({ de: 'Öffnungszeiten', en: 'Opening Hours' }), content: <><p>{t({ de: 'Di - Do: 10 - 18 Uhr', en: 'Tue – Thu: 10 AM – 6 PM' })}</p><p>{t({ de: 'Fr & Sa: 9 - 18 Uhr', en: 'Fri & Sat: 9 AM – 6 PM' })}</p><p className="text-xs opacity-50">{t({ de: 'So + Mo geschlossen', en: 'Sun + Mon closed' })}</p><p className="mt-2 font-medium">{t({ de: 'Bistro: Fr & Sa: 11:30 - 18 Uhr', en: 'Bistro: Fri & Sat: 11:30 AM – 6 PM' })}</p><p className="text-xs opacity-70">{t({ de: '(Letzte Bestellannahme 17:15 Uhr)', en: '(Last orders 5:15 PM)' })}</p><a href="https://bookings.zenchef.com/results?rid=381707&pid=1001" target="_blank" rel="noopener noreferrer" className="inline-block mt-2 text-adria hover:underline text-sm font-medium">{t({ de: 'Zur Reservierung →', en: 'Reserve a table →' })}</a></> },
                 { icon: Phone, title: t({ de: 'Telefon', en: 'Phone' }), content: <a href="tel:+4314314196" className="hover:text-adria transition-colors">+43 1 431 4196</a> },
                 { icon: Mail, title: t({ de: 'E-Mail', en: 'Email' }), content: <a href="mailto:info@gastrofisch.at" className="hover:text-adria transition-colors">info@gastrofisch.at</a> },
-              ].map((item, i) => (
-                <div key={i} className="flex items-start gap-5 p-5 glass-card rounded-2xl shadow-xl hover:-translate-y-1 transition-all duration-300">
-                  <div className="w-12 h-12 bg-adria/10 rounded-xl flex items-center justify-center flex-shrink-0"><item.icon className="w-6 h-6 text-adria" /></div>
-                  <div>
-                    <h3 className="font-playfair text-lg font-semibold text-graphite mb-1">{item.title}</h3>
-                    <div className="font-lato text-graphite/70">{item.content}</div>
+              ].map((item, i) => {
+                const eyebrow = 'eyebrow' in item ? (item as { eyebrow?: React.ReactNode }).eyebrow : undefined;
+                return (
+                  <div key={i} className="flex items-start gap-5 p-5 glass-card rounded-2xl shadow-xl hover:-translate-y-1 transition-all duration-300">
+                    <div className="w-12 h-12 bg-adria/10 rounded-xl flex items-center justify-center flex-shrink-0"><item.icon className="w-6 h-6 text-adria" /></div>
+                    <div>
+                      {eyebrow && <p className="font-lato text-[10px] font-semibold tracking-[0.2em] uppercase text-graphite/50 mb-1">{eyebrow}</p>}
+                      <h3 className="font-playfair text-lg font-semibold text-graphite mb-1">{item.title}</h3>
+                      <div className="font-lato text-graphite/70">{item.content}</div>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             <div className="rounded-xl overflow-hidden h-[250px] shadow-lg">
