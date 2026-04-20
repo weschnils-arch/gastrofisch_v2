@@ -27,15 +27,11 @@ const aspectClass = (o: Orientation) => {
     return 'aspect-[4/3]';
 };
 
-const maxWidthClass = (o: Orientation) => {
-    if (o === 'portrait') return 'max-w-md';
-    return 'max-w-4xl';
-};
-
 export function PhotoSlider({ images, orientation = 'landscape' }: PhotoSliderProps) {
     const items = images.map(normalize);
+    const outerMax = orientation === 'landscape' ? 'max-w-4xl' : '';
     return (
-        <div className={`w-full ${maxWidthClass(orientation)} mx-auto relative`}>
+        <div className={`w-full ${outerMax} mx-auto relative`}>
             <Carousel
                 opts={{
                     align: "start",
@@ -46,7 +42,7 @@ export function PhotoSlider({ images, orientation = 'landscape' }: PhotoSliderPr
                 <CarouselContent>
                     {items.map((img, index) => (
                         <CarouselItem key={index} className="basis-full">
-                            <div className="overflow-hidden rounded-xl shadow-lg bg-white">
+                            <div className="overflow-hidden rounded-xl shadow-lg">
                                 <img
                                     src={img.src}
                                     alt={`Gastrofish Gallery ${index + 1}`}
