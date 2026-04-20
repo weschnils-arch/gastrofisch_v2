@@ -114,8 +114,8 @@ const GrosshandelPage = () => {
       </section>
 
       <section className="section-container section-padding bg-white">
-        <div className="mt-16 text-center">
-          <div className="glass-card rounded-2xl p-8 max-w-2xl mx-auto border-adria/10">
+        <div className="w-full flex justify-center">
+          <div className="glass-card rounded-2xl p-8 w-full max-w-2xl border-adria/10 text-center">
             <h3 className="font-playfair text-xl font-semibold text-graphite mb-4">{t({ de: 'Direkter Draht für B2B-Anfragen', en: 'Direct line for B2B inquiries' })}</h3>
             <p className="font-lato text-graphite/70 mb-8">{t({ de: 'Haben Sie Fragen zu Preisen oder Verfügbarkeiten? Kontaktieren Sie uns direkt via WhatsApp Business.', en: 'Questions about prices or availability? Contact us directly via WhatsApp Business.' })}</p>
             <a
