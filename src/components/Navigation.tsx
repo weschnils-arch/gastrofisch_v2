@@ -40,12 +40,12 @@ const Navigation = ({ isScrolled }: NavigationProps) => {
   const rightLinks = navLinks.slice(3, 6);
 
   const LangSwitch = ({ dark }: { dark: boolean }) => (
-    <div className={`inline-flex items-center gap-1 text-[11px] xl:text-xs font-semibold tracking-[0.15em] ${dark ? 'text-graphite' : 'text-white/80'}`}>
+    <div className={`inline-flex items-center gap-1 text-[11px] xl:text-xs font-semibold tracking-[0.15em] whitespace-nowrap flex-shrink-0 ${dark ? 'text-graphite' : 'text-white/80'}`}>
       {(['de', 'en'] as Lang[]).map((l, i) => (
-        <span key={l} className="flex items-center">
+        <span key={l} className="flex items-center whitespace-nowrap">
           <button
             onClick={() => setLang(l)}
-            className={`transition-all duration-200 ${lang === l ? (dark ? 'text-adria' : 'text-white') : 'opacity-60 hover:opacity-100'}`}
+            className={`whitespace-nowrap transition-all duration-200 ${lang === l ? (dark ? 'text-adria' : 'text-white') : 'opacity-60 hover:opacity-100'}`}
             aria-label={`Switch to ${l.toUpperCase()}`}
           >
             {l.toUpperCase()}
