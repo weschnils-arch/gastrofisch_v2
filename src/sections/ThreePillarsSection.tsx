@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, ReactNode } from 'react';
 import { Link } from 'react-router-dom';
+import { useLang } from '../i18n/LanguageContext';
 
 
 interface PillarCardProps {
@@ -38,10 +39,10 @@ const PillarCard = ({ title, hoverText, ctaText, ctaLink, image, delay, objectPo
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="absolute inset-0">
-        <img 
-          src={image} 
-          alt={title} 
-          className={`w-full h-full object-cover transition-transform duration-1000 ease-out ${isHovered ? 'scale-110' : 'scale-100'}`} 
+        <img
+          src={image}
+          alt={title}
+          className={`w-full h-full object-cover transition-transform duration-1000 ease-out ${isHovered ? 'scale-110' : 'scale-100'}`}
           style={{ objectPosition }}
         />
       </div>
@@ -72,6 +73,7 @@ const PillarCard = ({ title, hoverText, ctaText, ctaLink, image, delay, objectPo
 const ThreePillarsSection = () => {
   const [titleVisible, setTitleVisible] = useState(false);
   const titleRef = useRef<HTMLDivElement>(null);
+  const { t } = useLang();
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
@@ -81,17 +83,39 @@ const ThreePillarsSection = () => {
     return () => observer.disconnect();
   }, []);
 
-  const pillars = [
-    { title: 'Fisch-Boutique', hoverText: 'Erlesener Fisch und Meeresfrüchte für anspruchsvolle Genießer. Erleben Sie ein exklusives Einkaufserlebnis in Wien-Neubau.', ctaText: 'ZUM GESCHÄFT', ctaLink: '/einzelhandel', image: '/images/retail/fisch-boutique.png', delay: 0, objectPosition: 'center 25%' },
-    { title: 'Für die Gastronomie', hoverText: 'Verlässliche Qualität und Lieferung für Wiens beste Restaurants. Direktimport aus der Adria, tagesfrisch geliefert.', ctaText: 'ZUM GROẞHANDEL', ctaLink: '/grosshandel', image: '/images/grosshandel.webp', delay: 150 },
-    { title: 'Bistro', hoverText: 'Frischer geht es nicht. Genießen Sie kostbare Fänge direkt vor Ort in einem kleinen, feinen Bistro.', ctaText: 'TISCH RESERVIEREN', ctaLink: 'https://bookings.zenchef.com/results?rid=381707&pid=1001', image: '/images/bistro.jpeg', delay: 300 },
+  const pillars: PillarCardProps[] = [
+    {
+      title: t({ de: 'Fisch-Boutique', en: 'Fish Boutique' }) as string,
+      hoverText: t({ de: 'Erlesener Fisch und Meeresfrüchte für anspruchsvolle Genießer. Erleben Sie ein exklusives Einkaufserlebnis in Wien-Neubau.', en: 'Exquisite fish and seafood for discerning gourmets. Experience an exclusive shopping experience in Vienna-Neubau.' }) as string,
+      ctaText: t({ de: 'ZUM GESCHÄFT', en: 'TO THE SHOP' }) as string,
+      ctaLink: '/einzelhandel',
+      image: '/images/fisch_boutique_portrait.webp',
+      delay: 0,
+      objectPosition: 'center 65%'
+    },
+    {
+      title: t({ de: 'Für die Gastronomie', en: 'For Restaurants' }) as string,
+      hoverText: t({ de: 'Verlässliche Qualität und Lieferung für Wiens Restaurants. Direktimport aus der Adria, tagesfrisch geliefert.', en: 'Reliable quality and delivery for Vienna\'s restaurants. Direct import from the Adriatic, delivered day-fresh.' }) as string,
+      ctaText: t({ de: 'ZUM GROẞHANDEL', en: 'TO WHOLESALE' }) as string,
+      ctaLink: '/grosshandel',
+      image: '/images/grosshandel.webp',
+      delay: 150
+    },
+    {
+      title: t({ de: 'Bistro', en: 'Bistro' }) as string,
+      hoverText: t({ de: 'Frischer geht es nicht. Genießen Sie kostbare Fänge direkt vor Ort in einem kleinen, feinen Bistro.', en: 'It doesn\'t get any fresher. Enjoy precious catches on-site in a small, refined bistro.' }) as string,
+      ctaText: t({ de: 'TISCH RESERVIEREN', en: 'RESERVE A TABLE' }) as string,
+      ctaLink: 'https://bookings.zenchef.com/results?rid=381707&pid=1001',
+      image: '/images/bistro.jpeg',
+      delay: 300
+    },
   ];
 
   return (
     <section className="section-container section-padding bg-white">
       <div ref={titleRef} className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-        <h2 className={`font-playfair text-3xl md:text-4xl lg:text-5xl font-semibold text-adria mb-6 transition-all duration-600 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>Unsere Angebote</h2>
-        <p className={`font-lato text-base md:text-lg text-graphite leading-relaxed transition-all duration-600 delay-200 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>Ob für Ihr Restaurant, Ihr Zuhause oder einen unvergesslichen Moment im Bistro – wählen Sie aus unserem Angebot.</p>
+        <h2 className={`font-playfair text-3xl md:text-4xl lg:text-5xl font-semibold text-adria mb-6 transition-all duration-600 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>{t({ de: 'Unsere Angebote', en: 'Our Offering' }) as ReactNode}</h2>
+        <p className={`font-lato text-base md:text-lg text-graphite leading-relaxed transition-all duration-600 delay-200 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>{t({ de: 'Ob für Ihr Restaurant, Ihr Zuhause oder einen unvergesslichen Moment im Bistro – wählen Sie aus unserem Angebot.', en: 'Whether for your restaurant, your home, or an unforgettable moment at the bistro – choose from our offering.' }) as ReactNode}</p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 md:gap-10 lg:gap-20">
         {pillars.map((pillar, index) => (<PillarCard key={index} {...pillar} />))}

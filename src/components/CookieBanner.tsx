@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Shield, X } from 'lucide-react';
+import { useLang } from '../i18n/LanguageContext';
 
 const CookieBanner = () => {
     const [isVisible, setIsVisible] = useState(false);
+    const { t } = useLang();
 
     useEffect(() => {
         const consent = localStorage.getItem('gastrofish_cookie_consent');
@@ -35,30 +37,36 @@ const CookieBanner = () => {
                         </div>
                         <div className="flex-1">
                             <div className="flex items-center justify-between mb-2">
-                                <h3 className="font-playfair text-lg font-bold text-graphite">Privatsphäre & Cookies</h3>
+                                <h3 className="font-playfair text-lg font-bold text-graphite">{t({ de: 'Privatsphäre & Cookies', en: 'Privacy & Cookies' })}</h3>
                                 <button onClick={() => setIsVisible(false)} className="text-gray-400 hover:text-gray-600">
                                     <X size={18} />
                                 </button>
                             </div>
                             <p className="font-lato text-sm text-graphite/70 leading-relaxed mb-6">
-                                Wir nutzen Cookies, um unsere Website für Sie optimal zu gestalten und fortlaufend zu verbessern. Durch die weitere Nutzung der Website stimmen Sie der Verwendung von Cookies zu.
+                                {t({
+                                    de: 'Wir nutzen Cookies, um unsere Website für Sie optimal zu gestalten und fortlaufend zu verbessern. Durch die weitere Nutzung der Website stimmen Sie der Verwendung von Cookies zu.',
+                                    en: 'We use cookies to design our website optimally for you and to continuously improve it. By continuing to use the website, you agree to the use of cookies.'
+                                })}
                             </p>
                             <div className="flex flex-col sm:flex-row gap-3">
                                 <button
                                     onClick={handleAccept}
                                     className="btn-primary py-2.5 text-xs flex-1"
                                 >
-                                    Alle akzeptieren
+                                    {t({ de: 'Alle akzeptieren', en: 'Accept all' })}
                                 </button>
                                 <button
                                     onClick={handleDecline}
                                     className="bg-gray-100 hover:bg-gray-200 text-graphite px-6 py-2.5 rounded-lg font-lato text-xs font-bold uppercase tracking-wider transition-all flex-1"
                                 >
-                                    Ablehnen
+                                    {t({ de: 'Ablehnen', en: 'Decline' })}
                                 </button>
                             </div>
                             <p className="mt-4 font-lato text-[10px] text-graphite/40 text-center uppercase tracking-widest font-bold">
-                                Mehr erfahren in der <Link to="/datenschutz" className="underline hover:text-adria">Datenschutzerklärung</Link>
+                                {t({
+                                    de: <>Mehr erfahren in der <Link to="/datenschutz" className="underline hover:text-adria">Datenschutzerklärung</Link></>,
+                                    en: <>Learn more in the <Link to="/datenschutz" className="underline hover:text-adria">Privacy Policy</Link></>
+                                })}
                             </p>
                         </div>
                     </div>

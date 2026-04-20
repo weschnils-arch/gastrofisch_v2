@@ -13,6 +13,7 @@ import KontaktPage from './pages/KontaktPage';
 import ImpressumPage from './pages/ImpressumPage';
 import DatenschutzPage from './pages/DatenschutzPage';
 import CookieBanner from './components/CookieBanner';
+import { LanguageProvider } from './i18n/LanguageContext';
 import './App.css';
 
 function App() {
@@ -25,27 +26,29 @@ function App() {
   }, []);
 
   return (
-    <Router>
-      <ScrollToTop />
-      <div className="min-h-screen bg-white overflow-x-hidden">
-        <Navigation isScrolled={isScrolled} />
-        <main>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/einzelhandel" element={<EinzelhandelPage />} />
-            <Route path="/grosshandel" element={<GrosshandelPage />} />
-            <Route path="/ueber-uns" element={<AboutPage />} />
-            <Route path="/rezepte" element={<RezeptePage />} />
-            <Route path="/rezepte/:id" element={<RezeptDetailPage />} />
-            <Route path="/kontakt" element={<KontaktPage />} />
-            <Route path="/impressum" element={<ImpressumPage />} />
-            <Route path="/datenschutz" element={<DatenschutzPage />} />
-          </Routes>
-        </main>
-        <Footer />
-        <CookieBanner />
-      </div>
-    </Router>
+    <LanguageProvider>
+      <Router>
+        <ScrollToTop />
+        <div className="min-h-screen bg-white overflow-x-hidden">
+          <Navigation isScrolled={isScrolled} />
+          <main>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/einzelhandel" element={<EinzelhandelPage />} />
+              <Route path="/grosshandel" element={<GrosshandelPage />} />
+              <Route path="/ueber-uns" element={<AboutPage />} />
+              <Route path="/rezepte" element={<RezeptePage />} />
+              <Route path="/rezepte/:id" element={<RezeptDetailPage />} />
+              <Route path="/kontakt" element={<KontaktPage />} />
+              <Route path="/impressum" element={<ImpressumPage />} />
+              <Route path="/datenschutz" element={<DatenschutzPage />} />
+            </Routes>
+          </main>
+          <Footer />
+          <CookieBanner />
+        </div>
+      </Router>
+    </LanguageProvider>
   );
 }
 
